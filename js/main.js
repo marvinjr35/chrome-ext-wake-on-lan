@@ -202,20 +202,26 @@ var settings_keys = [
 	'theme',
 ];
 
+var default_theme = 'dark';
+var default_host = '192.168.0.255';
+var default_port = '40000';
+var default_mac  = '20:00:00:00:00:00';
+var default_pass = '00:00:00:00:00:00';
+
 function load_settings() {
 	var storage = chrome.storage.local;
 
 	chrome.storage.local.get(settings_keys, function(settings) {
-		set_theme(settings['theme'] || 'dark');
+		set_theme(settings['theme'] || default_theme);
 		var form = $$('form[name=settings]');
-		form.host.value = settings['host'] || '192.168.0.255';
-		form.port.value = settings['port'] || '40000';
+		form.host.value = settings['host'] || default_host;
+		form.port.value = settings['port'] || default_port;
 		// We assume we only get called during init.
 		paste_mac();
-		form.mac.value = settings['mac'] || '20:00:00:00:00:00';
+		form.mac.value = settings['mac'] || default_mac;
 		paste_mac();
 		paste_pass();
-		form.pass.value = settings['pass'] || '00:00:00:00:00:00';
+		form.pass.value = settings['pass'] || default_pass;
 		paste_pass();
 	});
 }
