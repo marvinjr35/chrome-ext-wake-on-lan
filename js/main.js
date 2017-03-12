@@ -199,12 +199,14 @@ var settings_keys = [
 	'mac',
 	'pass',
 	'port',
+	'theme',
 ];
 
 function load_settings() {
 	var storage = chrome.storage.local;
 
 	chrome.storage.local.get(settings_keys, function(settings) {
+		set_theme(settings['theme'] || 'dark');
 		var form = $$('form[name=settings]');
 		form.host.value = settings['host'] || '192.168.0.255';
 		form.port.value = settings['port'] || '40000';
@@ -227,6 +229,7 @@ function store_settings() {
 		'mac': form.mac.value,
 		'pass': form.pass.value,
 		'port': form.port.value,
+		'theme': curr_theme,
 	};
 	chrome.storage.local.set(settings);
 }
@@ -238,6 +241,7 @@ window.onload = function() {
 	$$('form[name=settings]').onsubmit = send;
 	$$('a[name=mac-paste]').onclick = paste_mac;
 	$$('a[name=pass-paste]').onclick = paste_pass;
+	$$('input[name=theme]').onclick = toggle_theme;
 
 	load_settings();
 };
