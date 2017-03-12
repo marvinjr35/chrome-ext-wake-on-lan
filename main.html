@@ -20,6 +20,14 @@ input.mac {
 	text-align: center;
 }
 
+select[name=computer] {
+	width: 275px;
+}
+
+input[name=computer_name] {
+	width: 270px;
+}
+
 input[name=port] {
 	text-align: center;
 }
@@ -39,6 +47,14 @@ a {
 	font-weight: bold;
 	border: 1px dashed;
 }
+
+span[name=popup_msg] {
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	background-color: yellow;
+	border: 1px solid;
+}
 </style>
 </head>
 
@@ -51,58 +67,73 @@ a {
  <input type='button' name='theme' value='&#9788;'>
 </p>
 
+<span style='display: none' name='popup_msg'></span>
+
 <div class='settings'>
  <form name='settings'>
  <table width='100%'>
+  <tr>
+    <td>
+      Target Computer:
+    </td>
+    <td colspan=3>
+      <select tabindex='1' name='computer'>
+        <option selected value='Default'>Default</option>
+      </select>
+      <input name='computer_name' style='display: none;' placeholder='Enter name &amp; hit Add when done'>
+      <input tabindex='2' type='button' name='add_computer' value='Add'>
+      <input tabindex='3' type='button' name='del_computer' value='Del'>
+    </td>
+  </tr>
   <tr>
    <td>
     <a href='https://en.wikipedia.org/wiki/IP_address' target='_blank'>IP</a>
     /
     <a href='https://en.wikipedia.org/wiki/Hostname' target='_blank'>Hostname</a>:
    </td>
-   <td><input tabindex='1' name='host' value='255.255.255.255' size='40' autofocus></td>
+   <td><input tabindex='4' name='host' value='255.255.255.255' size='40' autofocus></td>
   </tr>
   <tr>
    <td><a href='https://en.wikipedia.org/wiki/MAC_address' target='_blank'>MAC address</a>:</td>
    <td>
     <span name='mac-many'>
-     <input tabindex='2' class='mac' name='mac0' value='20' size='1' maxlength='2'>
-     <input tabindex='3' class='mac' name='mac1' value='00' size='1' maxlength='2'>
-     <input tabindex='4' class='mac' name='mac2' value='00' size='1' maxlength='2'>
-     <input tabindex='5' class='mac' name='mac3' value='00' size='1' maxlength='2'>
-     <input tabindex='6' class='mac' name='mac4' value='00' size='1' maxlength='2'>
-     <input tabindex='7' class='mac' name='mac5' value='00' size='1' maxlength='2'>
+     <input tabindex='5' class='mac' name='mac0' value='20' size='1' maxlength='2'>
+     <input tabindex='6' class='mac' name='mac1' value='00' size='1' maxlength='2'>
+     <input tabindex='7' class='mac' name='mac2' value='00' size='1' maxlength='2'>
+     <input tabindex='8' class='mac' name='mac3' value='00' size='1' maxlength='2'>
+     <input tabindex='9' class='mac' name='mac4' value='00' size='1' maxlength='2'>
+     <input tabindex='10' class='mac' name='mac5' value='00' size='1' maxlength='2'>
     </span>
     <span name='mac-one' hidden>
-     <input tabindex='8' class='mac' name='mac' size='39' maxlength='20'>
+     <input tabindex='11' class='mac' name='mac' size='39' maxlength='20'>
     </span>
-    <a tabindex='9' name='mac-paste' href=''>Paste</a>
+    <a tabindex='12' name='mac-paste' href=''>Paste</a>
    </td>
   </tr>
   <tr>
    <td><a href='https://en.wikipedia.org/wiki/Port_(computer_networking)' target='_blank'>Port</a>:</td>
-   <td><input tabindex='10' type='number' name='port' min='1' max='65535' step='1' value='9'></td>
+   <td><input tabindex='13' type='number' name='port' min='1' max='65535' step='1' value='9'></td>
   </tr>
   <tr>
    <td><a href='https://en.wikipedia.org/wiki/Wake-on-LAN#Security_considerations' target='_blank'>SecureOn</a>:</td>
    <td>
     <span name='pass-many'>
-     <input tabindex='11' class='mac' name='pass0' value='00' size='1' maxlength='2'>
-     <input tabindex='12' class='mac' name='pass1' value='00' size='1' maxlength='2'>
-     <input tabindex='13' class='mac' name='pass2' value='00' size='1' maxlength='2'>
-     <input tabindex='14' class='mac' name='pass3' value='00' size='1' maxlength='2'>
-     <input tabindex='15' class='mac' name='pass4' value='00' size='1' maxlength='2'>
-     <input tabindex='16' class='mac' name='pass5' value='00' size='1' maxlength='2'>
+     <input tabindex='14' class='mac' name='pass0' value='00' size='1' maxlength='2'>
+     <input tabindex='15' class='mac' name='pass1' value='00' size='1' maxlength='2'>
+     <input tabindex='16' class='mac' name='pass2' value='00' size='1' maxlength='2'>
+     <input tabindex='17' class='mac' name='pass3' value='00' size='1' maxlength='2'>
+     <input tabindex='18' class='mac' name='pass4' value='00' size='1' maxlength='2'>
+     <input tabindex='19' class='mac' name='pass5' value='00' size='1' maxlength='2'>
     </span>
     <span name='pass-one' hidden>
-     <input tabindex='17' class='mac' name='pass' size='39' maxlength='20'>
+     <input tabindex='20' class='mac' name='pass' size='39' maxlength='20'>
     </span>
-    <a tabindex='18' name='pass-paste' href=''>Paste</a>
+    <a tabindex='21' name='pass-paste' href=''>Paste</a>
    </td>
   </tr>
   <tr>
    <td colspan=2 align='middle'>
-    <input tabindex='19' type='submit' name='send' value='Send'>
+    <input tabindex='20' type='submit' name='send' value='Send'>
    </td>
   </tr>
  </table>

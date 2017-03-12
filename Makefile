@@ -1,4 +1,4 @@
-CLOSURE = closure-compiler --language_in ECMASCRIPT5
+CLOSURE = closure-compiler --language_in ECMASCRIPT6
 YUICOMPRESSOR = yuicompressor
 
 all:
