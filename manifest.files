@@ -4,4 +4,5 @@ js/common.js
 js/launcher.js
 js/main.js
 js/net_error_list.js
+js/theme.js
 main.html
