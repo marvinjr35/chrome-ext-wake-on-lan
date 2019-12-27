@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/* Written by Mike Frysinger <vapier@gmail.com>.  Released into the public domain. */
+
+body {
+	background-color: var(--bg-color);
+	color: var(--fg-color);
+	font-family: monospace;
+	white-space: nowrap;
+}
+
+select, input, button {
+	filter: var(--input-filter);
+}
+
+input.mac {
+	text-align: center;
+}
+
+select[name=computer] {
+	width: 275px;
+}
+
+input[name=computer_name] {
+	width: 270px;
+}
+
+input[name=port] {
+	text-align: center;
+}
+
+button[name=theme] {
+	text-align: center;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+
+button[name=theme]::before {
+	content: var(--theme-text);
+}
+
+a {
+	color: var(--link-color);
+}
+
+.status {
+	font-weight: bold;
+	border: 1px dashed;
+}
+
+span[name=popup_msg] {
+	text-align: center;
+	font-weight: bold;
+	position: absolute;
+	background-color: yellow;
+	border: 1px solid;
+}

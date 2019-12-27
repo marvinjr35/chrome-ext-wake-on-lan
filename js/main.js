@@ -220,7 +220,6 @@ var old_settings_keys = [
 	'port',
 ];
 
-var default_theme = 'dark';
 var default_name = 'Default';
 var default_host = '192.168.0.255';
 var default_port = '40000';
@@ -251,7 +250,6 @@ function load_computer(idx) {
 
 function load_settings() {
 	chrome.storage.local.get(settings_keys, function(settings) {
-		set_theme(settings['theme'] || default_theme);
 		if ('computers' in settings) {
 			computers = settings['computers'] || [];
 			populate_computers();
@@ -290,6 +288,16 @@ function store_settings() {
 	chrome.storage.local.set({
 		'computers': computers,
 	});
+}
+
+/*
+ * Dynamic toggling of the theme via CSS.
+ */
+function toggle_theme() {
+	const theme = get_css_var('theme') == 'light' ? 'dark' : 'light';
+	const css = $$('link#theme-override');
+	css.href = `css/${theme}.css`;
+	chrome.storage.local.set({theme});
 }
 
 /*
@@ -440,7 +448,7 @@ window.onload = function() {
 	$$('input[name=del_computer]').onclick = del_computer;
 	$$('input[name=add_computer]').onclick = add_computer_start;
 	$$('input[name=computer_name]').onkeypress = add_computer_check;
-	$$('input[name=theme]').onclick = toggle_theme;
+	$$('button[name=theme]').onclick = toggle_theme;
 
 	load_settings();
 };

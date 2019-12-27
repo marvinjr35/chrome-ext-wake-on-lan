@@ -18,7 +18,7 @@ chrome.app.runtime.onLaunched.addListener(function() {
 		}
 
 		const frame = theme == 'light' ? '#eee' : '#111';
-		chrome.app.window.create('main.html', {
+		chrome.app.window.create(`main.html?theme=${theme}`, {
 			frame: {
 				color: frame,
 			},

@@ -4,58 +4,16 @@
 
 <head>
 <title>Wake-On-Lan (WOL)</title>
+<link rel='stylesheet' href='css/dark.css' media='(prefers-color-scheme: dark), (prefers-color-scheme: no-preference)'/>
+<link rel='stylesheet' href='css/light.css' media='(prefers-color-scheme: light)'/>
+<!-- Load theme override asap to help with initial loading/flashing. -->
+<link rel='stylesheet' href='' id='theme-override'/>
+<script src='js/theme-init.js'></script>
+
+<link rel='stylesheet' href='css/main.css'/>
 <script src='js/net_error_list.js'></script>
 <script src='js/common.js'></script>
 <script src='js/main.js'></script>
-<script src='js/theme.js'></script>
-<style>
-body {
-	background-color: black;
-	color: white;
-	font-family: monospace;
-	white-space: nowrap;
-}
-
-input.mac {
-	text-align: center;
-}
-
-select[name=computer] {
-	width: 275px;
-}
-
-input[name=computer_name] {
-	width: 270px;
-}
-
-input[name=port] {
-	text-align: center;
-}
-
-input[name=theme] {
-	text-align: center;
-	position: absolute;
-	top: 3px;
-	left: 3px;
-}
-
-a {
-	color: grey;
-}
-
-.status {
-	font-weight: bold;
-	border: 1px dashed;
-}
-
-span[name=popup_msg] {
-	text-align: center;
-	font-weight: bold;
-	position: absolute;
-	background-color: yellow;
-	border: 1px solid;
-}
-</style>
 </head>
 
 <body>
@@ -64,7 +22,7 @@ span[name=popup_msg] {
  <a href='https://en.wikipedia.org/wiki/Wake-on-LAN' target='_blank'>
  Wake-On-Lan (WOL) Magic Packet Generator
  </a>
- <input type='button' name='theme' value='&#9788;'>
+ <button name='theme'></button>
 </p>
 
 <span style='display: none' name='popup_msg'></span>
