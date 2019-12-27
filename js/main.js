@@ -83,7 +83,7 @@ function send() {
 	var checkresult = function(s, step, result) {
 		if (result < 0) {
 			status('error in ' + step + ': ' + net_error_list[result]);
-			chrome.sockets.udp.close(s, nullcb);
+			chrome.sockets.udp.close(s);
 			return false;
 		}
 		return true;
